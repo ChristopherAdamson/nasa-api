@@ -1,5 +1,5 @@
 <template>
-  <div class="apod col-5 text-center border rounded">
+  <div class="apod col-4 text-center border rounded">
     <input v-model="query" type="date" name="query" />
     <button @click="getApodByDate" class="btn btn-primary btn-sm">Submit</button>
     <h5>{{apodData.title}}</h5>
