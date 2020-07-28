@@ -13,11 +13,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apod: []
+    apod: [],
+    rover: [],
   },
   mutations: {
     setApod(state, apodData) {
       state.apod = apodData
+    },
+    setRover(state, roverData) {
+      state.rover = roverData
     }
   },
   actions: {
@@ -38,7 +42,8 @@ export default new Vuex.Store({
     async getRover({ commit, dispatch }) {
       try {
         let res = await _api.get(roverApiKey)
-        console.log(res.data);
+        console.log(res.data.photos);
+        commit("setRover", res.data.photos)
       } catch (error) { console.error(error) }
     }
   },
